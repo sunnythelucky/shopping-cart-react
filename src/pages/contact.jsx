@@ -16,14 +16,19 @@ export const Contact = () => {
 		e.target.reset();
 	};
 	return (
-		<form ref={form} onSubmit={sendEmail}>
-			<input type="text" name="name" placeholder="Your Name" required />
-			<input type="email" name="email" placeholder="Your e-mail" required />
-			<textarea name="message" rows="7" required placeholder="Write your message"></textarea>
-			<button type="submit" className="btn btn-primary">
-				Send
-			</button>
-			<span>{msg}</span>
-		</form>
+		<section className="contact">
+			<h2 className="text-light">Contact</h2>
+			<div className="container contact__container">
+				<form ref={form} onSubmit={sendEmail}>
+					<input type="text" name="name" placeholder="Your Name" required />
+					<input type="email" name="email" placeholder="Your e-mail" required />
+					<textarea name="message" rows="7" required placeholder="Write your message"></textarea>
+					<button type="submit" className="btn btn-primary">
+						Send
+					</button>
+					<span>{msg}</span>
+				</form>
+			</div>
+		</section>
 	);
 };
