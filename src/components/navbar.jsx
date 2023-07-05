@@ -5,16 +5,23 @@ import { ShoppingCart } from "phosphor-react";
 import "./navbar.css";
 
 export const Navbar = () => {
-	const { getTotalCartAmount } = useContext(ShopContext);
-	const totalAmount = getTotalCartAmount();
+	const { getTotalItemAmount } = useContext(ShopContext);
+	const itemAmount = getTotalItemAmount();
+
 	return (
 		<div className="navbar">
 			<div className="links">
 				<Link to="/shopping-cart-react/"> Shop </Link>
 				<Link to="/shopping-cart-react/contact"> Contact </Link>
 				<Link to="/shopping-cart-react/cart">
-					<ShoppingCart size={32} />
-					<div>{totalAmount > 0 && totalAmount}</div>
+					<div>
+						{itemAmount > 0 && (
+							<>
+								<div className="shopping-badge">{itemAmount}</div>
+								<ShoppingCart size={32} />
+							</>
+						)}
+					</div>
 				</Link>
 			</div>
 		</div>
