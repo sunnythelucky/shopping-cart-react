@@ -1,4 +1,4 @@
-import React, { useContext, useId } from "react";
+import React, { useContext } from "react";
 import { ShopContext } from "../../context/shop-context";
 import { PRODUCTS } from "../../products";
 import { CartItem } from "./cart-item";
@@ -8,7 +8,6 @@ import "./cart.css";
 export const Cart = () => {
 	const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
 	const totalAmount = getTotalCartAmount();
-	const cartId = useId();
 	const navigate = useNavigate();
 
 	return (
