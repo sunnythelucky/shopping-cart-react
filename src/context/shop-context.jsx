@@ -13,6 +13,8 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
 	const [cartItems, setCartItems] = useState(getDefaultCart());
+	const [isContactOpen, setIsContactOpen] = useState(false);
+	const [isLoginOpen, setIsLoginOpen] = useState(false);
 
 	const getTotalCartAmount = () => {
 		let totalAmount = 0;
@@ -59,6 +61,10 @@ export const ShopContextProvider = (props) => {
 		removeFromCart,
 		getTotalCartAmount,
 		checkout,
+		isContactOpen,
+		setIsContactOpen,
+		isLoginOpen,
+		setIsLoginOpen,
 	};
 
 	return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;

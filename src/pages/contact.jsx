@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./contact.css";
 import { useRef } from "react";
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { ShopContext } from "../context/shop-context";
+import { Modal } from "../components/Modal";
 
-export const Contact = () => {
+export const Contact = ({ onClose }) => {
+	const { isContactOpen } = useContext(ShopContext);
 	const form = useRef();
 	const [msg, setMsg] = useState("");
 
@@ -16,19 +19,21 @@ export const Contact = () => {
 		e.target.reset();
 	};
 	return (
-		<section className="contact">
-			<h2 className="text-light">Contact</h2>
-			<div className="container contact__container">
-				<form ref={form} onSubmit={sendEmail}>
-					<input type="text" name="name" placeholder="Your Name" required />
-					<input type="email" name="email" placeholder="Your e-mail" required />
-					<textarea name="message" rows="7" required placeholder="Write your message"></textarea>
-					<button type="submit" className="btn btn-primary">
-						Send
-					</button>
-					<span>{msg}</span>
-				</form>
-			</div>
-		</section>
+		<Modal open={isContactOpen} onClose={onClose}>
+			<section className="contact">
+				<h2 className="text-light">Contact</h2>
+				<div className="container contact__container">
+					<form ref={form} onSubmit={sendEmail}>
+						<input type="text" name="name" placeholder="Your Name" required />
+						<input type="email" name="email" placeholder="Your e-mail" required />
+						<textarea name="message" rows="7" required placeholder="Write your message"></textarea>
+						<button type="submit" className="btn btn-primary">
+							Send
+						</button>
+						<span>{msg}</span>
+					</form>
+				</div>
+			</section>
+		</Modal>
 	);
 };

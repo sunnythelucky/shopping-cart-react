@@ -5,14 +5,14 @@ import { ShoppingCart } from "phosphor-react";
 import "./navbar.css";
 
 export const Navbar = () => {
-	const { getTotalItemAmount } = useContext(ShopContext);
+	const { getTotalItemAmount, setIsContactOpen, setIsLoginOpen } = useContext(ShopContext);
 	const itemAmount = getTotalItemAmount();
 
 	return (
 		<div className="navbar">
 			<div className="links">
 				<Link to="/shopping-cart-react/"> Shop </Link>
-				<Link to="/shopping-cart-react/contact"> Contact </Link>
+				<Link onClick={() => setIsContactOpen(true)}> Contact </Link>
 				<Link to="/shopping-cart-react/cart">
 					<div>
 						{itemAmount > 0 && (
@@ -23,6 +23,7 @@ export const Navbar = () => {
 						)}
 					</div>
 				</Link>
+				<Link onClick={() => setIsLoginOpen(true)}> Login </Link>
 			</div>
 		</div>
 	);
