@@ -11,7 +11,7 @@ export const Shop = () => {
 	return (
 		<div className="shop">
 			<div className="shopTitle">
-				<h1>Sunny's Online Shop</h1>
+				<h1>Sunny's Online Shop :)</h1>
 			</div>
 			<Contact open={isContactOpen} onClose={() => setIsContactOpen(false)}></Contact>
 			<Login open={isLoginOpen} onClose={() => setIsLoginOpen(false)}></Login>
