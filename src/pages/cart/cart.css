@@ -43,3 +43,26 @@
 	margin: 10px;
 	cursor: pointer;
 }
+
+.countContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-right: 10%;
+	align-items: center;
+}
+
+.delete {
+	cursor: pointer;
+	background-color: rgba(221, 122, 122, 0.5);
+	border: none;
+	width: 70px;
+	height: 30px;
+	transition-duration: 0.4s;
+}
+
+.delete:hover {
+	background-color: #fff;
+	color: red;
+	border: 1px solid red;
+}

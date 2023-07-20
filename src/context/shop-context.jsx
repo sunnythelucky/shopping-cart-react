@@ -40,7 +40,9 @@ export const ShopContextProvider = (props) => {
 	const addToCart = (itemId) => {
 		setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
 	};
-
+	const deleteFromCart = (itemId) => {
+		setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
+	};
 	const removeFromCart = (itemId) => {
 		setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
 	};
@@ -65,6 +67,7 @@ export const ShopContextProvider = (props) => {
 		setIsContactOpen,
 		isLoginOpen,
 		setIsLoginOpen,
+		deleteFromCart,
 	};
 
 	return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
