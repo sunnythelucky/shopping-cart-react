@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
-import { PRODUCTS } from "../../products";
+import React, { useContext, useMemo } from "react";
+// import { PRODUCTS } from "../../products";
 import { Product } from "./product";
 import "./shop.css";
-import { Contact } from "../contact";
 import { ShopContext } from "../../context/shop-context";
-import { Login } from "../login";
+import { Contact } from "../contact/contact";
+import { Login } from "../login/login";
 
 export const Shop = () => {
-	const { isContactOpen, setIsContactOpen, isLoginOpen, setIsLoginOpen } = useContext(ShopContext);
+	const { isContactOpen, setIsContactOpen, isLoginOpen, setIsLoginOpen, getAllProducts, products } =
+		useContext(ShopContext);
+
+	useMemo(() => {
+		getAllProducts();
+	}, []);
+
 	return (
 		<div className="shop">
 			<div className="shopTitle">
@@ -16,7 +22,7 @@ export const Shop = () => {
 			<Contact open={isContactOpen} onClose={() => setIsContactOpen(false)}></Contact>
 			<Login open={isLoginOpen} onClose={() => setIsLoginOpen(false)}></Login>
 			<div className="products">
-				{PRODUCTS.map((product) => (
+				{products.map((product) => (
 					<Product data={product} key={product.id} />
 				))}
 			</div>

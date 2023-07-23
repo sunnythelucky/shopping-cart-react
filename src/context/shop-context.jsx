@@ -15,6 +15,14 @@ export const ShopContextProvider = (props) => {
 	const [cartItems, setCartItems] = useState(getDefaultCart());
 	const [isContactOpen, setIsContactOpen] = useState(false);
 	const [isLoginOpen, setIsLoginOpen] = useState(false);
+	const [products, setProducts] = useState([]);
+
+	const getAllProducts = () => {
+		fetch("https://fakestoreapi.com/products")
+			.then((res) => res.json())
+			.then((data) => setProducts(data))
+			.catch((err) => console.log(err));
+	};
 
 	const getTotalCartAmount = () => {
 		let totalAmount = 0;
@@ -68,6 +76,8 @@ export const ShopContextProvider = (props) => {
 		isLoginOpen,
 		setIsLoginOpen,
 		deleteFromCart,
+		getAllProducts,
+		products,
 	};
 
 	return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;

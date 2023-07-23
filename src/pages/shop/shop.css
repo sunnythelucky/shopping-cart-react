@@ -13,9 +13,9 @@
 
 .product {
 	border-radius: 15px;
-	width: 300px;
-	height: 350px;
-	margin: 50px;
+	width: 200px;
+	height: 500px;
+	margin: 10%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -23,7 +23,8 @@
 }
 
 .product img {
-	width: 100%;
+	width: 300px;
+	height: 350px;
 }
 
 .product .description {
