@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./contact.css";
-import { useRef } from "react";
-import { useState } from "react";
 import emailjs from "emailjs-com";
-import { ShopContext } from "../context/shop-context";
-import { Modal } from "../components/Modal";
+import { ShopContext } from "../../context/shop-context";
+import { Modal } from "../../components/Modal";
 
 export const Contact = ({ onClose }) => {
 	const { isContactOpen } = useContext(ShopContext);
