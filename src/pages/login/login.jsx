@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
+import { Modal } from "../../components/Modal";
 import "./login.css";
-import { useRef } from "react";
-import { Modal } from "../components/Modal";
-import { ShopContext } from "../context/shop-context";
+import { ShopContext } from "../../context/shop-context";
 
 export const Login = ({ onClose }) => {
 	const { isLoginOpen } = useContext(ShopContext);
