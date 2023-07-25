@@ -12,6 +12,7 @@ export const Shop = () => {
 
 	useMemo(() => {
 		getAllProducts();
+		// eslint-disable-next-line
 	}, []);
 
 	return (
