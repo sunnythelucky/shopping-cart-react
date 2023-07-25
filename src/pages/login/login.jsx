@@ -1,16 +1,16 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { Modal } from "../../components/Modal";
 import "./login.css";
 import { ShopContext } from "../../context/shop-context";
+import { useForm } from "react-hook-form";
 
 export const Login = ({ onClose }) => {
 	const { isLoginOpen } = useContext(ShopContext);
 
-	const form = useRef();
+	const form = useForm();
 
 	const login = (e) => {
 		e.preventDefault();
-		console.log(form.current);
 		e.target.reset();
 	};
 	return (
