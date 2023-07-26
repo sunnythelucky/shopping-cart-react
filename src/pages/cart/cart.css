@@ -16,15 +16,26 @@
 	margin: 30px;
 	gap: 7%;
 	padding: 0 10px;
+
+	@media screen and (max-width: 768px) {
+		width: 90vw;
+	}
 }
 
 .cartItem img {
-	width: 200px;
+	width: 150px;
+	@media screen and (max-width: 768px) {
+		width: 100px;
+	}
 }
 
 .cartItem .description {
 	width: 100%;
 	font-size: 30px;
+
+	@media screen and (max-width: 768px) {
+		font-size: 21px;
+	}
 }
 
 .countHandler input {
